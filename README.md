@@ -25,7 +25,44 @@ This repo contains the main code and data for our EMNLP 2022 paper [Reproducibil
 
 Contact persons: Yanran Chen ([yanran.chen@stud.tu-darmstadt.de](mailto:yanran.chen@stud.tu-darmstadt.de)), Steffen Eger ([steffen.eger@uni-bielefeld.de](mailto:steffen.eger@uni-bielefeld.de))
 
-If you have any questions, don’t hesitate to drop me an email!
+If you have any questions, don't hesitate to drop me an email!
+
+## ✨ New: BERTScore Layer Variation Experiment
+
+**Extension Study**: We extend the original paper's findings with a new experiment investigating **layer selection sensitivity in BERTScore**.
+
+### Hypothesis
+
+**The optimal BERT layer for computing embeddings in BERTScore varies significantly across different languages, revealing an additional source of reproducibility issues in BERT-based evaluation metrics.**
+
+While the original paper focused on preprocessing effects for MoverScore, we investigate whether BERTScore has its own critical sensitivity: the choice of which BERT layer to use for extracting embeddings.
+
+### Quick Start
+
+```bash
+# Run the layer variation experiment on WMT17
+python WMT17_layer_variation_experiment.py
+
+# Analyze and visualize results
+python analyze_layer_results.py
+```
+
+**What it does:**
+- Tests BERTScore with 5 different layer configurations (L1, L6, L9, L12, Average)
+- Evaluates across 7 language pairs in WMT17
+- Generates performance comparisons, statistical tests, and visualizations
+- Produces publication-ready tables and reports
+
+### Detailed Documentation
+
+See [**LAYER_EXPERIMENT_README.md**](LAYER_EXPERIMENT_README.md) for:
+- Complete methodology and experimental design
+- Installation and setup instructions
+- Detailed analysis guidelines
+- Expected results and interpretation
+- Report structure recommendations
+
+---
 
 ## Reproduction on MT
 ### Reproduction on WMT18
